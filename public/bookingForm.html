@@ -1,0 +1,16 @@
+<form action="/bookings" method="post">
+    <label >LR No. <input type="text" name="id"></label>
+    <label>Customer: <input type="text" name="customer" /></label><br />
+    <label>Service: <input type="text" name="service" /></label><br />
+    <label>Date: <input type="date" name="date" /></label><br />
+    <label>Mode:
+        <select name="mode">
+            <option value="By Road">By Road</option>
+            <option value="By Air">By Air</option>
+            <option value="PTL">PTL</option>
+            <option value="FTL">FTL</option>
+        </select>
+    </label><br />
+    <label>Amount: <input type="number" name="amount" /></label><br />
+    <button type="submit">Submit Booking</button>
+</form>
