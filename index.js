@@ -19,6 +19,10 @@ app.post('/bookings', (req, res) => {
     return res.status(201).json(newBooking);
 })
 
+app.get('/bookings', (req, res) => {
+    res.json(bookings);
+});
+
 
 
 app.listen(PORT, () => {
