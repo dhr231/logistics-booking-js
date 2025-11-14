@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const ratePerKg = parseFloat(document.querySelector('#ratePerKg').value);
         const collection = parseFloat(document.querySelector('#collection').value);
         const delivery = parseFloat(document.querySelector('#delivery').value);
+        const resultDiv = document.querySelector('#result');
 
         // basic validations
         if (!lrNo) { alert('LR No required'); return; }
@@ -28,10 +29,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 body: JSON.stringify(payload)
             });
             const result = await res.json();
+            resultDiv.style.color = res.ok ? 'green' : 'red';
             if (res.ok) {
-                alert('Total Booking: ' + result.totalBooking);
+                resultDiv.innerText = 'Total Booking: ₹ ' + result.totalBooking;
+                form.reset();
             } else {
-                alert('Error: ' + result.error);
+                resultDiv.innerText = 'Error: ' + result.error;
             }
         } catch (err) {
             console.error(err);
